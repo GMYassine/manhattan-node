@@ -13,11 +13,12 @@ app.use(express.json());
 
 wss.on('connection', (ws,req) => {
   console.log(`A client has connected. (total clients ${wss.clients.size})`);
-  
+
   ws.dynamic_name = getDynamicName(req);
   wss.clients.add(ws);
 
   ws.on('message', (message) => {
+    console.log(message);
     message = JSON.parse(message);
     let toMod = message.toMod;
     let toOneClient = message.toOneClient;
