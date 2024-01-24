@@ -18,8 +18,8 @@ wss.on('connection', (ws,req) => {
   wss.clients.add(ws);
 
   ws.on('message', (message) => {
-    console.log(message);
     message = JSON.parse(message);
+    console.log(message);
     let toMod = message.toMod;
     let toOneClient = message.toOneClient;
     let client = ws;
