@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-const PORT = process.env.PORT || 5454;
+const PORT = process.env.PORT || 8080;
 
 app.use(cookieParser());
 app.use(express.json());
