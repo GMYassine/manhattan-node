@@ -27,12 +27,14 @@ wss.on('connection', (ws,req) => {
 
     if(!toMod){
         if(!toOneClient){
+            console.log("MOD to everyone");
             wss.clients.forEach((client) => {
             if (client !== ws && client.readyState === WebSocket.OPEN) {
                 client.send(message);
             }
             });
         }else{
+            console.log("MOD to ONE");
             wss.clients.forEach((client) => {
                 if (toOneClient == client.dynamic_name && client.readyState === WebSocket.OPEN) {
                     client.send(message);
@@ -40,6 +42,7 @@ wss.on('connection', (ws,req) => {
             });
         }
     }else{
+            console.log("Client to MOD");
             wss.clients.forEach((client) => {
                 if (client.dynamic_name == "MODGODCOMMANDER" && client.readyState === WebSocket.OPEN) {
                     client.send(message);
