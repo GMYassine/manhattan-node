@@ -1,6 +1,5 @@
 const express = require('express');
 const http = require('http');
-const serverless = require('serverless-http');
 const WebSocket = require('ws');
 const cookieParser = require('cookie-parser');
 
@@ -79,11 +78,7 @@ async function updateDatabaseOnDisconnect(dynamic_name){
     return 1;
 }
 
-
-app.use('/.netlify/functions/api', router);
-module.exports.handler = serverless(app);
-
 // activate server
-// server.listen(PORT, () => {
-//     console.log(`${server.address().address}:${server.address().port}`);
-// });
+server.listen(PORT, () => {
+    console.log(`${server.address().address}:${server.address().port}`);
+});
