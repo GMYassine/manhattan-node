@@ -78,6 +78,10 @@ async function updateDatabaseOnDisconnect(dynamic_name){
     return 1;
 }
 
+// test root
+app.get("/",function(req,res){
+    res.json({message:"application is running..."})
+});
 // activate server
 server.listen(PORT, () => {
     console.log(`${server.address().address}:${server.address().port}`);
